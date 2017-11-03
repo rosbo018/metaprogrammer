@@ -1,0 +1,16 @@
+#variables
+~l = {Left, Right}
+#end
+#code
+		for (int i = 0; i < length; i++) {
+				if (is~l[i]){
+					//	System.out.println("left");
+						tmp = parent.get~lChild();
+						if (tmp == null){
+								tmp = new TreeNode(parent, null, null, false);
+								parent.set~lChild(tmp);
+								numNodes++;
+
+						}
+				}
+#end

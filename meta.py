@@ -29,6 +29,31 @@
 #sections determined by #variables and #code
 import re
 import sys
+def about():
+        print('''
+        This Program is a meta programming tools to help you when the language you're working with does 
+        not support metaprogramming. 
+        example:
+
+        #variables
+        ~l = {Left, Right}
+        #end
+        #code
+                function~l();
+        #end
+        
+        will become
+                functionLeft();
+                functionRight();
+        arguments are:
+        --help, -h: show this text
+        
+        example:
+        meta.py input output
+
+        Will take the file `input` as input and output in the file `output`
+        if no output file is specified, the program will output into `input.out`
+        ''')
 def sectionLocationParse(rawLines): #gets the location of variable and code blocks
     error = ""
     lineNum = 0
@@ -175,7 +200,7 @@ def main(argv):
         print("use --help to see options")
         return
     if(argv[1] == "--help" or argv[1] == "-h"):
-        printHelp()
+        about()
         return
     input = argv[1]
     output = input+".mout" #incase there isn't an output file specified
