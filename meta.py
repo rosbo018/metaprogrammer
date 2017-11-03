@@ -1,11 +1,34 @@
+#!/usr/bin/python3
 ###############################################################################
 #                               meta programmer                               #
-#     
+# lisenced under the GPL gentoo penguin lisence      
+#
+# currently very primative, would like to add more functionality if I can
+# think of anything. 
+#
+#example input file
+# you have to use '#variable', '#code' and '#end'
+#          #variables
+#          ~a = [A...D]
+#          ~y = [1...3]
+#          ~z = [a...d]
+#          ~b = {nice, meme}
+#          #end
+#          #code
+#          for (int i = 0; i < 10; i++){
+#          	~a+= ~;
+#          	~y;
+#          	function~b(~b);
+#          	
+#          
+#          }
+#          #end
 ###############################################################################
 # univeral syntax
 # _$'xxx' variables eg _$a, _$ABED
 #sections determined by #variables and #code
-import re;
+import re
+import sys
 def sectionLocationParse(rawLines): #gets the location of variable and code blocks
     error = ""
     lineNum = 0
@@ -144,31 +167,33 @@ def writePermutations(fileInLines, fileOut, varList, numPermutations, codeStart,
         i+=1
             
         
-te = "jfeknf_$x fjeklf"
-t = "_$x"
 
+def main(argv):
 
+    print(len(argv))
+    if (len(argv ) <= 1):
+        print("use --help to see options")
+        return
+    if(argv[1] == "--help" or argv[1] == "-h"):
+        printHelp()
+        return
+    input = argv[1]
+    output = input+".mout" #incase there isn't an output file specified
+    if(len(argv) >= 3):
+        output = argv[2]
+    fMeta = open(input, "r") #change "test' to variable input"
+    fOut = open(output, "a")
+    fOut.seek(0)
+    fOut.truncate()
+    lines = fMeta.readlines();
+    loc = sectionLocationParse(lines)
+    vars = defineVariables(lines, loc[0], loc[1])
+    iterations = getNumIterations(vars[1])
+    print(vars)
+    print(iterations)
+    writePermutations(lines, fOut, vars, iterations, loc[2], loc[3])
+    fMeta.close()
+    fOut.close()
 
-
-input = "test"
-fMeta = open(input, "r") #change "test' to variable input"
-fOut = open(input+".out", "a")
-fOut.seek(0)
-fOut.truncate()
-lines = fMeta.readlines();
-loc = sectionLocationParse(lines)
-#print(loc)
-vars = defineVariables(lines, loc[0], loc[1])
-iterations = getNumIterations(vars[1])
-print(vars)
-print(iterations)
-writePermutations(lines, fOut, vars, iterations, loc[2], loc[3])
-fMeta.close()
-fOut.close()
-
-
-#print(evaulatedStaticRanges("{addd, sdsds,123v,dbbb}"))
-#print(evaluateArithmeticRanges("= [Aa...Dz]"))
-    
-#print (loc)
+main(sys.argv)
 

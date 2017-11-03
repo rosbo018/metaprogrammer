@@ -1,15 +1,16 @@
 #variables
-~a = [A...D]
-~y = [1...3]
-~z = [a...d]
-~b = {nice, meme}
+~l = {left, right}
 #end
 #code
-for (int i = 0; i < 10; i++){
-	~a+= ~;
-	~y;
-	function~b(~b);
-	
+		for (int i = 0; i < length; i++) {
+				if (is~l[i]){
+					//	System.out.println("left");
+						tmp = parent.get~lChild();
+						if (tmp == null){
+								tmp = new TreeNode(parent, null, null, false);
+								parent.set~lChild(tmp);
+								numNodes++;
 
-}
+						}
+				}
 #end

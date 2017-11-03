@@ -1,0 +1,22 @@
+		for (int i = 0; i < length; i++) {
+				if (isleft[i]){
+					//	System.out.println("left");
+						tmp = parent.getleftChild();
+						if (tmp == null){
+								tmp = new TreeNode(parent, null, null, false);
+								parent.setleftChild(tmp);
+								numNodes++;
+
+						}
+				}
+		for (int i = 0; i < length; i++) {
+				if (isright[i]){
+					//	System.out.println("left");
+						tmp = parent.getrightChild();
+						if (tmp == null){
+								tmp = new TreeNode(parent, null, null, false);
+								parent.setrightChild(tmp);
+								numNodes++;
+
+						}
+				}
