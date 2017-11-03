@@ -1,0 +1,10 @@
+###############################################################################
+#                               meta programmer                               #
+#     
+###############################################################################
+# univeral syntax
+# _$'xxx' variables eg _$a, _$ABED
+#sections determined by #variables and #code
+import re;
+
+fMeta = open("meta", "r") #change "meta to variable input"

@@ -1,0 +1,15 @@
+#variables
+~a = [A...D]
+~y = [1...3]
+~z = [a...d]
+~b = {nice, meme}
+#end
+#code
+for (int i = 0; i < 10; i++){
+	~a+= ~;
+	~y;
+	function~b(~b);
+	
+
+}
+#end
